@@ -4,10 +4,10 @@ using UnityEngine.Events;
 public class BallController : MonoBehaviour
 {
     [SerializeField] private float force = 1f;
+    [SerializeField] private InputManager inputManager;
 
     private bool isBallLaunched;
     private Rigidbody ballRB;
-    private InputManager inputManager;
 
     void Start()
     {
