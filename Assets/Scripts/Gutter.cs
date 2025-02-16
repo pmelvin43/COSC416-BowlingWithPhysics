@@ -6,11 +6,15 @@ public class Gutter : MonoBehaviour
     {
         Rigidbody ballRigidBody = triggeredBody.GetComponent<Rigidbody>();
 
-        float velocityMagnitude = ballRigidBody.linearVelocity.magnitude;
 
-        ballRigidBody.linearVelocity = Vector3.zero;
-        ballRigidBody.angularVelocity = Vector3.zero;
+        if (ballRigidBody != null && !ballRigidBody.isKinematic)
+        {
+            float velocityMagnitude = ballRigidBody.linearVelocity.magnitude;
 
-        ballRigidBody.AddForce(transform.forward * velocityMagnitude, ForceMode.VelocityChange);
+            ballRigidBody.linearVelocity = Vector3.zero;
+            ballRigidBody.angularVelocity = Vector3.zero;
+
+            ballRigidBody.AddForce(transform.forward * velocityMagnitude, ForceMode.VelocityChange);
+        }
     }
 }
